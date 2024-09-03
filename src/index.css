@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* index.css */
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bg-gradient-to-r {
+    background: linear-gradient(to right, #000000, #434343);
+  }
+  
+  .bg-gradient-to-tr {
+    background: linear-gradient(to top right, #ff0081, #ff8c00);
+  }
+  
+  .bg-black/30 {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  

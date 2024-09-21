@@ -4,27 +4,27 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import logo from '../images/logo.png';  // Import the logo image
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Loading state
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Basic validation
     if (!email || !password) {
       toast.error('Please enter both email and password.');
       return;
     }
 
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/users/login', { // Replace with your backend login URL
+      const response = await fetch('http://localhost:5000/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,21 +35,13 @@ function Login({ onLogin }) {
       const data = await response.json();
 
       if (!response.ok) {
-        // If response is not ok, show error message
         throw new Error(data.message || 'Login failed');
       }
 
-      // Assuming the backend sends a token on successful login
       const { token } = data;
-
-      // Store the token securely (e.g., localStorage)
       localStorage.setItem('authToken', token);
-
-      // Optionally, you can store user information as well
-      // localStorage.setItem('user', JSON.stringify(data.user));
-
       toast.success('Login successful!');
-      onLogin(); // Update the login state in App.js
+      onLogin();
       navigate('/home'); 
     } catch (error) {
       console.error('Error during login:', error);
@@ -63,7 +55,13 @@ function Login({ onLogin }) {
     <div className="flex items-center justify-center bg-gray-900">
       <ToastContainer />
       <div className="bg-gray-900 text-white px-8 py-10 rounded-lg shadow-lg max-w-md w-full mx-auto">
+        {/* Add the logo here */}
+        <div className="flex justify-center mb-6">
+          <img src={logo} alt="Aqua Vision Logo" className="h-16 w-16" />
+        </div>
+        
         <h2 className="text-center text-4xl font-bold mb-8">Log in</h2>
+        
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium">Email address</label>

@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import logo from '../images/logo.png';  // Import the logo image
+import logo from '../images/logo.png';  
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ function Login({ onLogin }) {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -21,41 +21,16 @@ function Login({ onLogin }) {
       return;
     }
 
-    setIsLoading(true);
-
-    try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
-      }
-
-      const { token } = data;
-      localStorage.setItem('authToken', token);
-      toast.success('Login successful!');
-      onLogin();
-      navigate('/home'); 
-    } catch (error) {
-      console.error('Error during login:', error);
-      toast.error(error.message || 'An error occurred during login.');
-    } finally {
-      setIsLoading(false); 
-    }
+  
+    toast.success('Login successful!');
+    onLogin();
+    navigate('/home'); 
   };
 
   return (
     <div className="flex items-center justify-center bg-gray-900">
       <ToastContainer />
       <div className="bg-gray-900 text-white px-8 py-10 rounded-lg shadow-lg max-w-md w-full mx-auto">
-        {/* Add the logo here */}
         <div className="flex justify-center mb-6">
           <img src={logo} alt="Aqua Vision Logo" className="h-16 w-16" />
         </div>

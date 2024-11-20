@@ -16,7 +16,7 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -27,7 +27,7 @@ const Signup = () => {
     if (formData.password !== formData.confirmPassword) {
       toast.error('Passwords do not match');
     } else {
-      console.log('Form data being sent:', formData); // Log formData
+      console.log('Form data being sent:', formData); 
   
       try {
         const response = await fetch('http://localhost:5000/api/users/register', {
@@ -45,7 +45,7 @@ const Signup = () => {
   
         console.log('Signup successful:', data);
         toast.success('Signup successful!');
-        navigate('/Login'); // Redirect to login page on successful signup
+        navigate('/Login'); 
       } catch (error) {
         console.error('Error:', error);
         toast.error(error.message || 'Signup failed');
@@ -55,19 +55,18 @@ const Signup = () => {
 
   return (
     <div className="flex w-full h-screen bg-black">
-      {/* Right side: Ball bouncing animation */}
       <div className="relative w-1/2 flex items-center justify-center overflow-hidden">
         <div className="absolute w-80 h-80 bg-gradient-to-tr from-pink-500 to-blue-800 rounded-full animate-bounce"></div>
         <div className="absolute w-[100%] h-1/2 bottom-0 bg-white/10 backdrop-blur-xl"></div>
       </div>
 
-      {/* Left side: Signup form */}
+  
       <div className="relative w-1/2 flex items-center justify-center">
         <div className="w-full max-w-md px-8 py-10 bg-gray-900 text-white rounded-lg shadow-lg">
           <ToastContainer />
           <div className="absolute top-4 right-4">
             <button
-              onClick={() => navigate('/login')} // Navigate to login page on button click
+              onClick={() => navigate('/login')} 
               className="bg-violet-600 hover:bg-violet-700 text-white py-2 px-4 rounded-lg font-medium"
             >
               Log In

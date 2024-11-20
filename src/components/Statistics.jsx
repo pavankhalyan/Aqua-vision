@@ -14,7 +14,6 @@ ChartJS.register(
 );
 
 const MainContent = () => {
-  // Mock data for demonstration purposes
   const speedData = {
     labels: ['0:00', '0:05', '0:10', '0:15', '0:20', '0:25'],
     datasets: [
@@ -67,35 +66,34 @@ const MainContent = () => {
     ],
   };
 
-  // Custom options to apply the dark theme to the charts
   const chartOptions = {
     plugins: {
       legend: {
         labels: {
-          color: 'white', // Change label color to white
+          color: 'white', 
         },
       },
       title: {
         display: true,
-        color: 'white', // Change title color to white
+        color: 'white', 
       },
     },
     scales: {
       x: {
         ticks: {
-          color: 'white', // Change x-axis tick color to white
+          color: 'white', 
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.2)', // Lighter grid lines
+          color: 'rgba(255, 255, 255, 0.2)', 
         },
       },
       y: {
         ticks: {
-          color: 'white', // Change y-axis tick color to white
+          color: 'white', 
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.2)', // Lighter grid lines
-        },
+          color: 'rgba(255, 255, 255, 0.2)', 
+        }
       },
     },
   };

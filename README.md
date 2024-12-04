@@ -27,4 +27,6 @@ Project Workflow:(block diagram):
 ![Another Screenshot](src/images/cap.png) 
 ![Another Screenshot](src/images/Screenshot%202024-11-29%20235822.png) 
 ![Another Screenshot](src/images/Screenshot%202024-11-30%20000647.png) 
+![Another Screenshot](src/images/Screenshot%202024-11-30%20001841.png) 
+![Another Screenshot](src/images/Screenshot%202024-11-30%20002048.png) 
 

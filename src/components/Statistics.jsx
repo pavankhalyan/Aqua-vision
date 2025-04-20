@@ -14,14 +14,14 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const BlynkChart = () => {
   const [leftTurns, setLeftTurns] = useState(0);
-  const [rightTurns, setRightTurns] = useState(0);
+  const [rightTurns, setRightTurns] =  useState(0);
   const [headTurns, setHeadTurns] = useState(0);
 
   
   const BLYNK_API_TOKEN = 'YOUR_BLYNK_API_TOKEN';
-  const LEFT_TURN_PIN = 'V1'; // Virtual pin for left turns
-  const RIGHT_TURN_PIN = 'V2'; // Virtual pin for right turns
-  const HEAD_TURN_PIN = 'V3'; // Virtual pin for head turns
+  const LEFT_TURN_PIN = 'V1'; 
+  const RIGHT_TURN_PIN = 'V2'; 
+  const HEAD_TURN_PIN = 'V3'; 
 
   const fetchBlynkData = async () => {
     try {

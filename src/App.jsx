@@ -2,7 +2,7 @@ import './index.css';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
 import Login from './components/Login';
-import Signup from './components/Signup';
+import Signin from './components/Signin';
 import Home from './components/Home';
 import Statistics from './components/Statistics';
 import SwimmerDetails from './components/SwimmerDetails';
@@ -40,9 +40,9 @@ function App() {
                   <div className="w-full max-w-md px-8 py-10">
                     <Login onLogin={handleLogin} />
                     <div className="absolute top-4 right-4">
-                      <Link to="/signup">
+                      <Link to="/signin">
                         <button className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
-                          Sign Up
+                          Sign in
                         </button>
                       </Link>
                     </div>
@@ -52,7 +52,7 @@ function App() {
             )
           }
         />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
 
         {/* Protected routes */}
         <Route

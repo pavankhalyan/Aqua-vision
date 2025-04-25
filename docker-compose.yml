@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: dockerfile  # Your Vite + React Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  backend:
+    build:
+      context: ./Aqua-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - ./Aqua-backend:/app
+    environment:
+      - DATABASE_URL=sqlite:///./users.db
+
+networks:
+  default:
+    driver: bridge

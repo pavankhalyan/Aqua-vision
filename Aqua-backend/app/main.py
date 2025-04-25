@@ -10,4 +10,4 @@ app.include_router(user_routes.router, prefix="/api/users", tags=["Users"])
 
 @app.get("/")
 def read_root():
-    return {"message": "API is up and running!"}
+    return {"message": "API is up and running!"} 
